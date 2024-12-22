@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+ <hibernate-mapping>
+    <class name="mapCollection.Department">
+  <id name="id" column="department_id" type="long">
+  <generator class="identity" />
+  </id>
+  <property name="name" column="department_name" type="string"/>
+  <map name="employeeNames" table="employee_names_map">
+    <key column="department_id"/>
+    <map-key column="employee_id" type="long"/>
+    <element column="employee_name" type="string"/>
+  </map>
+</class>
+</hibernate-mapping> 
+
